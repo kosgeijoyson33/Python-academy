@@ -1,196 +1,1465 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>Python Basics | Python Academy</title>
+    <title>Lesson 1 - Introduction to Python | Python Academy</title>
 
     <link rel="stylesheet" href="style.css">
 
     <style>
-        .lesson-container {
-            max-width: 900px;
-            margin: 50px auto;
-            padding: 25px;
-        }
-
-        .lesson-box {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            margin: 25px 0;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-        }
-
         .lesson-code {
-            background: #111827;
-            color: #ffffff;
+            position: relative;
+        }
+
+        .lesson-code pre {
+            color: #e2e8f0;
+        }
+
+        .lesson-code .keyword {
+            color: #c084fc;
+        }
+
+        .lesson-code .string {
+            color: #86efac;
+        }
+
+        .lesson-code .function {
+            color: #60a5fa;
+        }
+
+        .lesson-code .number {
+            color: #fbbf24;
+        }
+
+        .lesson-code .comment {
+            color: #94a3b8;
+        }
+
+        .lesson-content section {
+            margin-bottom: 35px;
+        }
+
+        .lesson-content section h2 {
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 10px;
+        }
+
+        .lesson-content .lesson-intro {
+            background: #eff6ff;
+            border-radius: 12px;
             padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .lesson-content .lesson-intro p {
+            margin-bottom: 0;
+        }
+
+        .lesson-content .exercise-question {
+            margin-bottom: 25px;
+        }
+
+        .lesson-content .exercise-question label {
+            display: block;
+            font-weight: 700;
+            color: #334155;
+            margin-bottom: 10px;
+        }
+
+        .lesson-content .exercise-question input,
+        .lesson-content .exercise-question textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
             border-radius: 8px;
-            overflow-x: auto;
+            outline: none;
         }
 
-        .lesson-button {
-            display: inline-block;
-            background: #2563eb;
-            color: white;
-            padding: 12px 20px;
-            text-decoration: none;
-            border-radius: 6px;
+        .lesson-content .exercise-question input:focus,
+        .lesson-content .exercise-question textarea:focus {
+            border-color: #2563eb;
+        }
+
+        .lesson-content .exercise-question textarea {
+            min-height: 100px;
+            font-family: Consolas, monospace;
+            resize: vertical;
+        }
+
+        .exercise-feedback {
             margin-top: 15px;
+            padding: 12px;
+            border-radius: 8px;
+            display: none;
         }
 
-        .lesson-container h1 {
-            color: #2563eb;
+        .exercise-feedback.success {
+            display: block;
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .exercise-feedback.error {
+            display: block;
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .lesson-complete-message {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background: #dcfce7;
+            color: #166534;
+            border-radius: 8px;
+        }
+
+        .lesson-complete-message.show {
+            display: block;
+        }
+
+        .lesson-actions {
+            margin-top: 40px;
+        }
+
+        .lesson-actions button {
+            cursor: pointer;
+        }
+
+        .lesson-actions a,
+        .lesson-actions button {
+            min-width: 130px;
+        }
+
+        .lesson-progress-label {
+            display: flex;
+            justify-content: space-between;
+            color: #64748b;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .lesson-sidebar .lesson-status {
+            font-size: 12px;
+            color: #16a34a;
+            margin-left: 5px;
+        }
+
+        @media (max-width: 480px) {
+            .lesson-actions {
+                flex-direction: column;
+            }
+
+            .lesson-actions a,
+            .lesson-actions button {
+                width: 100%;
+            }
         }
     </style>
-
 </head>
 
-<body>
+<body class="lesson-page">
 
-<header class="navbar">
+    <!-- =====================================
+         LESSON HEADER
+    ====================================== -->
 
-    <div class="logo">
-        🐍 Python Academy
+    <header class="lesson-header">
+
+        <a href="courses.html">
+            ← Back to Courses
+        </a>
+
+        <a href="dashboard.html">
+            My Dashboard
+        </a>
+
+    </header>
+
+
+    <!-- =====================================
+         LESSON LAYOUT
+    ====================================== -->
+
+    <div class="lesson-layout">
+
+
+        <!-- =====================================
+             LESSON SIDEBAR
+        ====================================== -->
+
+        <aside class="lesson-sidebar">
+
+            <h3>Python Programming</h3>
+
+            <div class="lesson-progress-label">
+                <span>Course Progress</span>
+                <span id="sidebarProgress">0%</span>
+            </div>
+
+            <div class="progress-container">
+                <div
+                    class="progress-bar"
+                    id="sidebarProgressBar"
+                ></div>
+            </div>
+
+            <a href="lesson1.html" class="active">
+                Lesson 1: Introduction to Python
+            </a>
+
+            <a href="lesson1.html#python-basics">
+                Python Basics
+            </a>
+
+            <a href="lesson1.html#variables">
+                Variables
+            </a>
+
+            <a href="lesson1.html#data-types">
+                Data Types
+            </a>
+
+            <a href="lesson1.html#input-output">
+                Input and Output
+            </a>
+
+            <a href="lesson1.html#practice">
+                Practice Exercises
+            </a>
+
+            <a href="quiz.html">
+                Take Quiz
+            </a>
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+        </aside>
+
+
+        <!-- =====================================
+             LESSON CONTENT
+        ====================================== -->
+
+        <main class="lesson-content">
+
+            <div class="lesson-intro">
+
+                <span class="course-label">
+                    PYTHON PROGRAMMING
+                </span>
+
+                <h1>Lesson 1: Introduction to Python</h1>
+
+                <p>
+                    Welcome to Python Academy! In this lesson,
+                    you will learn the basics of Python programming,
+                    understand how Python works, and write your
+                    first simple programs.
+                </p>
+
+            </div>
+
+
+            <!-- =====================================
+                 SECTION 1
+            ====================================== -->
+
+            <section>
+
+                <h2>1. What is Python?</h2>
+
+                <p>
+                    Python is a high-level, general-purpose
+                    programming language used to develop
+                    applications, websites, automation tools,
+                    artificial intelligence systems, and data
+                    analysis programs.
+                </p>
+
+                <p>
+                    Python is popular because its syntax is
+                    simple and easy to understand. Beginners
+                    can use it to learn programming concepts
+                    without dealing with complicated code.
+                </p>
+
+                <h3>Uses of Python</h3>
+
+                <ul>
+                    <li>Web development</li>
+                    <li>Artificial intelligence</li>
+                    <li>Machine learning</li>
+                    <li>Data analysis</li>
+                    <li>Automation</li>
+                    <li>Desktop applications</li>
+                    <li>Cybersecurity tools</li>
+                    <li>Scientific computing</li>
+                </ul>
+
+            </section>
+
+
+            <!-- =====================================
+                 SECTION 2
+            ====================================== -->
+
+            <section id="python-basics">
+
+                <h2>2. Your First Python Program</h2>
+
+                <p>
+                    The first program most Python learners
+                    write displays the message:
+                    Hello, World!
+                </p>
+
+                <p>
+                    Python uses the <strong>print()</strong>
+                    function to display information on the screen.
+                </p>
+
+                <div class="lesson-code">
+
+                    <pre><code>print("Hello, World!")</code></pre>
+
+                </div>
+
+                <h3>Understanding the code</h3>
+
+                <ul>
+                    <li>
+                        <strong>print()</strong> displays information.
+                    </li>
+
+                    <li>
+                        The text inside quotation marks is
+                        displayed on the screen.
+                    </li>
+
+                    <li>
+                        Python executes the instruction when
+                        the program runs.
+                    </li>
+                </ul>
+
+                <h3>Expected output</h3>
+
+                <div class="lesson-code">
+
+                    <pre><code>Hello, World!</code></pre>
+
+                </div>
+
+                <div class="lesson-note">
+
+                    <p>
+                        <strong>Remember:</strong>
+                        Python is case-sensitive.
+                        The word print must be written in
+                        lowercase letters.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================
+                 SECTION 3
+            ====================================== -->
+
+            <section>
+
+                <h2>3. Comments in Python</h2>
+
+                <p>
+                    Comments are notes written inside a program.
+                    They help programmers understand what the
+                    code does.
+                </p>
+
+                <p>
+                    Python uses the hash symbol
+                    <strong>#</strong> to create a comment.
+                </p>
+
+                <div class="lesson-code">
+
+                    <pre><code># This is a comment
+
+print("Welcome to Python")</code></pre>
+
+                </div>
+
+                <p>
+                    Python ignores comments when executing
+                    the program.
+                </p>
+
+            </section>
+
+
+            <!-- =====================================
+                 SECTION 4
+            ====================================== -->
+
+            <section id="variables">
+
+                <h2>4. Variables in Python</h2>
+
+                <p>
+                    A variable is a name used to store
+                    information in a program.
+                </p>
+
+                <p>
+                    Variables allow programmers to save
+                    values and use them later.
+                </p>
+
+                <h3>Example</h3>
+
+                <div class="lesson-code">
+
+                    <pre><code>name = "Joyson"
+
+age = 22
+
+print(name)
+
+print(age)</code></pre>
+
+                </div>
+
+                <h3>Expected output</h3>
+
+                <div class="lesson-code">
+
+                    <pre><code>Joyson
+22</code></pre>
+
+                </div>
+
+                <p>
+                    In this example:
+                </p>
+
+                <ul>
+                    <li>
+                        <strong>name</strong> stores text.
+                    </li>
+
+                    <li>
+                        <strong>age</strong> stores a number.
+                    </li>
+
+                    <li>
+                        The print function displays the values.
+                    </li>
+                </ul>
+
+                <h3>Rules for naming variables</h3>
+
+                <ul>
+                    <li>Variable names cannot start with a number.</li>
+
+                    <li>Variable names cannot contain spaces.</li>
+
+                    <li>Variable names can contain letters and numbers.</li>
+
+                    <li>Underscores can be used in variable names.</li>
+
+                    <li>Python keywords cannot be used as variable names.</li>
+                </ul>
+
+                <h3>Example of valid variables</h3>
+
+                <div class="lesson-code">
+
+                    <pre><code>student_name = "Joyson"
+
+student_age = 22
+
+course = "Python"</code></pre>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================
+                 SECTION 5
+            ====================================== -->
+
+            <section id="data-types">
+
+                <h2>5. Python Data Types</h2>
+
+                <p>
+                    Data types describe the kind of information
+                    stored in a variable.
+                </p>
+
+                <p>
+                    Python has several built-in data types.
+                </p>
+
+                <h3>String</h3>
+
+                <p>
+                    A string stores text.
+                </p>
+
+                <div class="lesson-code">
+
+                    <pre><code>name = "Joyson"
+
+print(name)</code></pre>
+
+                </div>
+
+                <h3>Integer</h3>
+
+                <p>
+                    An integer stores a whole number.
+                </p>
+
+                <div class="lesson-code">
+
+                    <pre><code>age = 22
+
+print(age)</code></pre>
+
+                </div>
+
+                <h3>Float</h3>
+
+                <p>
+                    A float stores a decimal number.
+                </p>
+
+                <div class="lesson-code">
+
+                    <pre><code>price = 150.50
+
+print(price)</code></pre>
+
+                </div>
+
+                <h3>Boolean</h3>
+
+                <p>
+                    A Boolean stores either True or False.
+                </p>
+
+                <div class="lesson-code">
+
+                    <pre><code>is_student = True
+
+print(is_student)</code></pre>
+
+                </div>
+
+                <h3>Summary of data types</h3>
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Data Type</th>
+                            <th>Description</th>
+                            <th>Example</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>String</td>
+                            <td>Text</td>
+                            <td>"Python"</td>
+                        </tr>
+
+                        <tr>
+                            <td>Integer</td>
+                            <td>Whole number</td>
+                            <td>25</td>
+                        </tr>
+
+                        <tr>
+                            <td>Float</td>
+                            <td>Decimal number</td>
+                            <td>25.5</td>
+                        </tr>
+
+                        <tr>
+                            <td>Boolean</td>
+                            <td>True or False</td>
+                            <td>True</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </section>
+
+
+            <!-- =====================================
+                 SECTION 6
+            ====================================== -->
+
+            <section>
+
+                <h2>6. Basic Mathematical Operations</h2>
+
+                <p>
+                    Python can perform mathematical
+                    calculations using arithmetic operators.
+                </p>
+
+                <h3>Addition</h3>
+
+                <div class="lesson-code">
+
+                    <pre><code>a = 10
+
+b = 5
+
+print(a + b)</code></pre>
+
+                </div>
+
+                <p>Output: 15</p>
+
+                <h3>Subtraction</h3>
+
+                <div class="lesson-code">
+
+                    <pre><code>a = 10
+
+b = 5
+
+print(a - b)</code></pre>
+
+                </div>
+
+                <p>Output: 5</p>
+
+                <h3>Multiplication</h3>
+
+                <div class="lesson-code">
+
+                    <pre><code>a = 10
+
+b = 5
+
+print(a * b)</code></pre>
+
+                </div>
+
+                <p>Output: 50</p>
+
+                <h3>Division</h3>
+
+                <div class="lesson-code">
+
+                    <pre><code>a = 10
+
+b = 5
+
+print(a / b)</code></pre>
+
+                </div>
+
+                <p>Output: 2.0</p>
+
+                <h3>Arithmetic operators</h3>
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Operator</th>
+                            <th>Meaning</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>+</td>
+                            <td>Addition</td>
+                        </tr>
+
+                        <tr>
+                            <td>-</td>
+                            <td>Subtraction</td>
+                        </tr>
+
+                        <tr>
+                            <td>*</td>
+                            <td>Multiplication</td>
+                        </tr>
+
+                        <tr>
+                            <td>/</td>
+                            <td>Division</td>
+                        </tr>
+
+                        <tr>
+                            <td>**</td>
+                            <td>Exponentiation</td>
+                        </tr>
+
+                        <tr>
+                            <td>%</td>
+                            <td>Modulus</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </section>
+
+
+            <!-- =====================================
+                 SECTION 7
+            ====================================== -->
+
+            <section id="input-output">
+
+                <h2>7. Input and Output</h2>
+
+                <p>
+                    Python allows users to enter information
+                    using the input() function.
+                </p>
+
+                <h3>Example</h3>
+
+                <div class="lesson-code">
+
+                    <pre><code>name = input("Enter your name: ")
+
+print("Welcome", name)</code></pre>
+
+                </div>
+
+                <p>
+                    When the program runs, it asks the user
+                    to enter their name.
+                </p>
+
+                <h3>Example output</h3>
+
+                <div class="lesson-code">
+
+                    <pre><code>Enter your name: Joyson
+
+Welcome Joyson</code></pre>
+
+                </div>
+
+                <h3>Using input with numbers</h3>
+
+                <p>
+                    The input() function returns text.
+                    To perform calculations, convert the
+                    input into a number.
+                </p>
+
+                <div class="lesson-code">
+
+                    <pre><code>age = int(input("Enter your age: "))
+
+print(age)</code></pre>
+
+                </div>
+
+                <p>
+                    The int() function converts the input
+                    into an integer.
+                </p>
+
+            </section>
+
+
+            <!-- =====================================
+                 SECTION 8
+            ====================================== -->
+
+            <section>
+
+                <h2>8. Simple Python Program</h2>
+
+                <p>
+                    Let's combine variables, input,
+                    and mathematical operations.
+                </p>
+
+                <h3>Program: Simple Calculator</h3>
+
+                <div class="lesson-code">
+
+                    <pre><code>num1 = int(input("Enter first number: "))
+
+num2 = int(input("Enter second number: "))
+
+sum_result = num1 + num2
+
+print("The sum is:", sum_result)</code></pre>
+
+                </div>
+
+                <h3>Example output</h3>
+
+                <div class="lesson-code">
+
+                    <pre><code>Enter first number: 10
+
+Enter second number: 20
+
+The sum is: 30</code></pre>
+
+                </div>
+
+                <div class="lesson-note">
+
+                    <p>
+                        <strong>Learning tip:</strong>
+                        Try changing the numbers and
+                        observe how the output changes.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================
+                 SECTION 9
+            ====================================== -->
+
+            <section id="practice">
+
+                <h2>9. Practice Exercises</h2>
+
+                <p>
+                    Complete the following exercises
+                    to test your understanding.
+                </p>
+
+                <div class="lesson-exercise">
+
+                    <h3>Exercise 1: Display a Message</h3>
+
+                    <p>
+                        Write a Python statement that
+                        displays the message:
+                    </p>
+
+                    <div class="lesson-code">
+
+                        <pre><code>Welcome to Python Academy</code></pre>
+
+                    </div>
+
+                    <div class="exercise-question">
+
+                        <label for="exercise1">
+                            Your answer:
+                        </label>
+
+                        <textarea
+                            id="exercise1"
+                            placeholder="Write your Python code here..."
+                        ></textarea>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="btn-primary"
+                        onclick="checkExercise1()"
+                    >
+                        Check Answer
+                    </button>
+
+                    <div
+                        id="feedback1"
+                        class="exercise-feedback"
+                    ></div>
+
+                </div>
+
+
+                <div class="lesson-exercise">
+
+                    <h3>Exercise 2: Variables</h3>
+
+                    <p>
+                        Create a variable called
+                        <strong>name</strong> and assign
+                        your name to it.
+                    </p>
+
+                    <p>
+                        Then display the variable using print().
+                    </p>
+
+                    <div class="exercise-question">
+
+                        <label for="exercise2">
+                            Your answer:
+                        </label>
+
+                        <textarea
+                            id="exercise2"
+                            placeholder="Write your Python code here..."
+                        ></textarea>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="btn-primary"
+                        onclick="checkExercise2()"
+                    >
+                        Check Answer
+                    </button>
+
+                    <div
+                        id="feedback2"
+                        class="exercise-feedback"
+                    ></div>
+
+                </div>
+
+
+                <div class="lesson-exercise">
+
+                    <h3>Exercise 3: Addition</h3>
+
+                    <p>
+                        Write a Python program that adds
+                        15 and 25 and displays the result.
+                    </p>
+
+                    <div class="exercise-question">
+
+                        <label for="exercise3">
+                            Your answer:
+                        </label>
+
+                        <textarea
+                            id="exercise3"
+                            placeholder="Write your Python code here..."
+                        ></textarea>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="btn-primary"
+                        onclick="checkExercise3()"
+                    >
+                        Check Answer
+                    </button>
+
+                    <div
+                        id="feedback3"
+                        class="exercise-feedback"
+                    ></div>
+
+                </div>
+
+
+                <div class="lesson-exercise">
+
+                    <h3>Exercise 4: User Input</h3>
+
+                    <p>
+                        Write a program that asks the user
+                        for their name and displays:
+                    </p>
+
+                    <div class="lesson-code">
+
+                        <pre><code>Hello [name]</code></pre>
+
+                    </div>
+
+                    <div class="exercise-question">
+
+                        <label for="exercise4">
+                            Your answer:
+                        </label>
+
+                        <textarea
+                            id="exercise4"
+                            placeholder="Write your Python code here..."
+                        ></textarea>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="btn-primary"
+                        onclick="checkExercise4()"
+                    >
+                        Check Answer
+                    </button>
+
+                    <div
+                        id="feedback4"
+                        class="exercise-feedback"
+                    ></div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================
+                 SECTION 10
+            ====================================== -->
+
+            <section>
+
+                <h2>10. Lesson Summary</h2>
+
+                <p>
+                    In this lesson, you learned:
+                </p>
+
+                <ul>
+
+                    <li>What Python is and where it is used.</li>
+
+                    <li>How to write your first Python program.</li>
+
+                    <li>How to display output using print().</li>
+
+                    <li>How to create variables.</li>
+
+                    <li>Common Python data types.</li>
+
+                    <li>Basic arithmetic operations.</li>
+
+                    <li>How to collect user input.</li>
+
+                    <li>How to write a simple calculator program.</li>
+
+                </ul>
+
+                <div class="lesson-note">
+
+                    <p>
+                        <strong>Important:</strong>
+                        Practice writing the examples
+                        yourself before taking the quiz.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =====================================
+                 COMPLETE LESSON
+            ====================================== -->
+
+            <section>
+
+                <h2>Complete Lesson 1</h2>
+
+                <p>
+                    When you have finished reading and
+                    practicing, click the button below
+                    to mark this lesson as completed.
+                </p>
+
+                <button
+                    type="button"
+                    class="btn-success"
+                    id="completeLessonButton"
+                    onclick="completeLesson()"
+                >
+                    Mark Lesson as Complete
+                </button>
+
+                <div
+                    id="lessonCompleteMessage"
+                    class="lesson-complete-message"
+                >
+                    <strong>Congratulations!</strong>
+
+                    You have completed Lesson 1.
+
+                    You can now proceed to the Python quiz.
+                </div>
+
+            </section>
+
+
+            <!-- =====================================
+                 LESSON NAVIGATION
+            ====================================== -->
+
+            <div class="lesson-actions">
+
+                <a
+                    href="courses.html"
+                    class="btn-outline"
+                >
+                    ← Previous
+                </a>
+
+                <a
+                    href="quiz.html"
+                    class="btn-primary"
+                    id="quizLink"
+                >
+                    Take Quiz →
+                </a>
+
+            </div>
+
+        </main>
+
     </div>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="lesson1.html">Lesson 1</a>
-    </nav>
 
-</header>
+    <!-- =====================================
+         JAVASCRIPT
+    ====================================== -->
 
+    <script>
 
-<main class="lesson-container">
+        /*
+         * LESSON STORAGE
+         *
+         * This website uses browser localStorage.
+         * Progress is saved on the current browser.
+         */
 
-    <h1>Lesson 1: Introduction to Python</h1>
+        const LESSON_KEY = "pythonAcademyLesson1Completed";
 
-    <p>
-        Welcome to your first Python programming lesson.
-        In this lesson, you will learn how to write your
-        first Python program.
-    </p>
-
-
-    <div class="lesson-box">
-
-        <h2>What is Python?</h2>
-
-        <p>
-            Python is a programming language used to create
-            websites, applications, automation tools,
-            artificial intelligence and many other systems.
-        </p>
-
-    </div>
+        const PROGRESS_KEY = "pythonAcademyProgress";
 
 
-    <div class="lesson-box">
+        /*
+         * GET LESSON STATUS
+         */
 
-        <h2>Your First Python Program</h2>
+        function isLessonCompleted() {
 
-        <p>
-            Python uses the print() function to display
-            information on the screen.
-        </p>
+            return localStorage.getItem(LESSON_KEY) === "true";
 
-        <div class="lesson-code">
-
-<pre>print("Hello, World!")</pre>
-
-        </div>
-
-        <p>
-            This program displays the message:
-        </p>
-
-        <div class="lesson-code">
-
-<pre>Hello, World!</pre>
-
-        </div>
-
-    </div>
+        }
 
 
-    <div class="lesson-box">
+        /*
+         * UPDATE PROGRESS DISPLAY
+         */
 
-        <h2>Understanding the Code</h2>
+        function updateProgressDisplay() {
 
-        <p>
-            <strong>print()</strong> is a Python function
-            that displays information.
-        </p>
+            const completed = isLessonCompleted();
 
-        <p>
-            The text inside quotation marks is the message
-            that Python displays.
-        </p>
+            const progress = completed ? 100 : 0;
 
-    </div>
+            const progressText =
+                document.getElementById("sidebarProgress");
 
+            const progressBar =
+                document.getElementById("sidebarProgressBar");
 
-    <div class="lesson-box">
+            if (progressText) {
 
-        <h2>Practice Exercise</h2>
+                progressText.textContent = progress + "%";
 
-        <p>
-            Write a Python program that displays your name.
-        </p>
+            }
 
-        <p>
-            Example:
-        </p>
+            if (progressBar) {
 
-        <div class="lesson-code">
+                progressBar.style.width = progress + "%";
 
-<pre>print("My name is Metto")</pre>
+            }
 
-        </div>
-
-    </div>
+        }
 
 
-    <div class="lesson-box">
+        /*
+         * CHECK EXERCISE 1
+         */
 
-        <h2>Lesson Summary</h2>
+        function checkExercise1() {
 
-        <p>
-            You have learned:
-        </p>
+            const answer =
+                document.getElementById("exercise1")
+                .value
+                .toLowerCase();
 
-        <ul>
-            <li>What Python is.</li>
-            <li>What the print() function does.</li>
-            <li>How to display text.</li>
-            <li>How to write a simple Python program.</li>
-        </ul>
+            const feedback =
+                document.getElementById("feedback1");
 
-    </div>
+            const correct =
+                answer.includes("print") &&
+                answer.includes("welcome to python academy");
+
+            if (correct) {
+
+                feedback.textContent =
+                    "Correct! You used print() to display the message.";
+
+                feedback.className =
+                    "exercise-feedback success";
+
+            } else {
+
+                feedback.textContent =
+                    "Try again. Use print() and include the message inside quotation marks.";
+
+                feedback.className =
+                    "exercise-feedback error";
+
+            }
+
+        }
 
 
-    <a href="index.html" class="lesson-button">
-        Back to Home
-    </a>
+        /*
+         * CHECK EXERCISE 2
+         */
 
-</main>
+        function checkExercise2() {
+
+            const answer =
+                document.getElementById("exercise2")
+                .value
+                .toLowerCase();
+
+            const feedback =
+                document.getElementById("feedback2");
+
+            const correct =
+                answer.includes("name") &&
+                answer.includes("=") &&
+                answer.includes("print");
+
+            if (correct) {
+
+                feedback.textContent =
+                    "Correct! You created a variable and displayed it.";
+
+                feedback.className =
+                    "exercise-feedback success";
+
+            } else {
+
+                feedback.textContent =
+                    "Try again. Create a name variable and use print(name).";
+
+                feedback.className =
+                    "exercise-feedback error";
+
+            }
+
+        }
 
 
-<footer>
+        /*
+         * CHECK EXERCISE 3
+         */
 
-    <p>
-        Python Academy | Learn Python. Build Your Future.
-    </p>
+        function checkExercise3() {
 
-</footer>
+            const answer =
+                document.getElementById("exercise3")
+                .value
+                .toLowerCase();
+
+            const feedback =
+                document.getElementById("feedback3");
+
+            const correct =
+                answer.includes("15") &&
+                answer.includes("25") &&
+                answer.includes("+") &&
+                answer.includes("print");
+
+            if (correct) {
+
+                feedback.textContent =
+                    "Correct! Your program uses addition and displays the result.";
+
+                feedback.className =
+                    "exercise-feedback success";
+
+            } else {
+
+                feedback.textContent =
+                    "Try again. Add 15 and 25 using the + operator.";
+
+                feedback.className =
+                    "exercise-feedback error";
+
+            }
+
+        }
+
+
+        /*
+         * CHECK EXERCISE 4
+         */
+
+        function checkExercise4() {
+
+            const answer =
+                document.getElementById("exercise4")
+                .value
+                .toLowerCase();
+
+            const feedback =
+                document.getElementById("feedback4");
+
+            const correct =
+                answer.includes("input") &&
+                answer.includes("print");
+
+            if (correct) {
+
+                feedback.textContent =
+                    "Correct! Your program collects input and displays output.";
+
+                feedback.className =
+                    "exercise-feedback success";
+
+            } else {
+
+                feedback.textContent =
+                    "Try again. Use input() to collect a name and print() to display it.";
+
+                feedback.className =
+                    "exercise-feedback error";
+
+            }
+
+        }
+
+
+        /*
+         * COMPLETE LESSON
+         */
+
+        function completeLesson() {
+
+            localStorage.setItem(
+                LESSON_KEY,
+                "true"
+            );
+
+            localStorage.setItem(
+                PROGRESS_KEY,
+                "100"
+            );
+
+            const message =
+                document.getElementById(
+                    "lessonCompleteMessage"
+                );
+
+            const button =
+                document.getElementById(
+                    "completeLessonButton"
+                );
+
+            if (message) {
+
+                message.classList.add("show");
+
+            }
+
+            if (button) {
+
+                button.textContent =
+                    "✓ Lesson Completed";
+
+                button.disabled = true;
+
+            }
+
+            updateProgressDisplay();
+
+        }
+
+
+        /*
+         * LOAD SAVED LESSON STATUS
+         */
+
+        function loadLessonStatus() {
+
+            updateProgressDisplay();
+
+            if (isLessonCompleted()) {
+
+                const message =
+                    document.getElementById(
+                        "lessonCompleteMessage"
+                    );
+
+                const button =
+                    document.getElementById(
+                        "completeLessonButton"
+                    );
+
+                if (message) {
+
+                    message.classList.add("show");
+
+                }
+
+                if (button) {
+
+                    button.textContent =
+                        "✓ Lesson Completed";
+
+                    button.disabled = true;
+
+                }
+
+            }
+
+        }
+
+
+        /*
+         * INITIALIZE PAGE
+         */
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                loadLessonStatus();
+
+            }
+        );
+
+    </script>
 
 </body>
-
 </html>
