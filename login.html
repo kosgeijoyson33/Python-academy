@@ -1,0 +1,327 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Login | Python Academy</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        body {
+            background: #f4f7fb;
+        }
+
+        .auth-container {
+            max-width: 450px;
+            margin: 60px auto;
+            padding: 20px;
+        }
+
+        .auth-card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .auth-card h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .auth-card p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .auth-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .auth-form input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 7px;
+            box-sizing: border-box;
+        }
+
+        .auth-form button {
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 7px;
+            background: #2563eb;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .auth-form button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .auth-message {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 7px;
+            display: none;
+            line-height: 1.5;
+        }
+
+        .auth-message.success {
+            display: block;
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .auth-message.error {
+            display: block;
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        .auth-links {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .auth-links a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <!-- NAVIGATION -->
+
+    <nav class="navbar">
+
+        <div class="container">
+
+            <a href="index.html" class="logo">
+                Python Academy
+            </a>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="courses.html">Courses</a>
+                </li>
+
+                <li>
+                    <a href="register.html">Register</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+
+    <!-- LOGIN -->
+
+    <main class="auth-container">
+
+        <div class="auth-card">
+
+            <h1>Welcome Back</h1>
+
+            <p>
+                Login to continue learning Python.
+            </p>
+
+
+            <form id="loginForm" class="auth-form">
+
+
+                <label for="email">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter your password"
+                    required
+                >
+
+
+                <button type="submit" id="loginButton">
+
+                    Login
+
+                </button>
+
+
+            </form>
+
+
+            <!-- MESSAGE -->
+
+            <div
+                id="authMessage"
+                class="auth-message"
+                role="status"
+                aria-live="polite"
+            ></div>
+
+
+            <!-- REGISTER LINK -->
+
+            <div class="auth-links">
+
+                <p>
+                    Don't have an account?
+                    <a href="register.html">
+                        Register
+                    </a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- SUPABASE -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="auth.js"></script>
+
+
+    <!-- LOGIN LOGIC -->
+
+    <script>
+
+        const loginForm =
+            document.getElementById("loginForm");
+
+        const loginButton =
+            document.getElementById("loginButton");
+
+        const authMessage =
+            document.getElementById("authMessage");
+
+
+        /* =====================================
+           DISPLAY MESSAGE
+        ===================================== */
+
+        function showMessage(message, type) {
+
+            authMessage.textContent = message;
+
+            authMessage.className =
+                "auth-message " + type;
+
+        }
+
+
+        /* =====================================
+           LOGIN
+        ===================================== */
+
+        loginForm.addEventListener("submit", async function(event) {
+
+            event.preventDefault();
+
+
+            const email =
+                document.getElementById("email")
+                .value.trim();
+
+            const password =
+                document.getElementById("password")
+                .value;
+
+
+            loginButton.disabled = true;
+
+            loginButton.textContent =
+                "Logging in...";
+
+
+            try {
+
+                await loginUser(
+                    email,
+                    password
+                );
+
+
+                showMessage(
+                    "Login successful. Opening your dashboard...",
+                    "success"
+                );
+
+
+                setTimeout(function() {
+
+                    window.location.href =
+                        "dashboard.html";
+
+                }, 1000);
+
+
+            } catch (error) {
+
+                showMessage(
+                    displayAuthError(error),
+                    "error"
+                );
+
+            } finally {
+
+                loginButton.disabled = false;
+
+                loginButton.textContent =
+                    "Login";
+
+            }
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>
