@@ -9,9 +9,9 @@
    Project URL and Publishable Key.
 */
 
-const SUPABASE_URL = "YOUR_SUPABASE_PROJECT_URL";
+const SUPABASE_URL = "https://aqtstatgmpqcajniirix.supabase.co";
 
-const SUPABASE_KEY = "YOUR_SUPABASE_PUBLISHABLE_KEY";
+const SUPABASE_KEY = "sb_publishable_go-rsoZVXht0DEQ6ZXiauQ_dqag6mkl";
 
 
 /* =====================================================
