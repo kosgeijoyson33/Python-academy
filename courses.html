@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Python Courses | Python Academy</title>
+
+    <meta name="description"
+          content="Learn Python programming with Python Academy. Explore beginner lessons, practice exercises, and quizzes.">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* COURSES PAGE */
+
+        .courses-page {
+            padding: 50px 20px;
+        }
+
+        .courses-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .courses-header h1 {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .courses-header p {
+            font-size: 17px;
+            line-height: 1.7;
+            color: #666;
+        }
+
+        .course-category {
+            margin-bottom: 45px;
+        }
+
+        .course-category h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(260px, 1fr)
+            );
+
+            gap: 25px;
+        }
+
+        .course-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+            display: flex;
+            flex-direction: column;
+
+            transition: transform 0.3s ease,
+                        box-shadow 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+        }
+
+        .course-icon {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .course-level {
+            display: inline-block;
+            width: fit-content;
+
+            background: #e8f5e9;
+            color: #2e7d32;
+
+            padding: 6px 12px;
+            border-radius: 20px;
+
+            font-size: 12px;
+            font-weight: bold;
+
+            margin-bottom: 15px;
+        }
+
+        .course-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .course-card p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+
+        .course-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+
+            margin-bottom: 20px;
+
+            font-size: 14px;
+            color: #555;
+        }
+
+        .course-details span {
+            display: inline-block;
+        }
+
+        .course-card ul {
+            padding-left: 20px;
+            margin-bottom: 25px;
+        }
+
+        .course-card ul li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .course-card .btn {
+            margin-top: auto;
+            text-align: center;
+            display: block;
+        }
+
+        .course-card .btn-secondary {
+            margin-top: 10px;
+        }
+
+        .course-coming-soon {
+            opacity: 0.85;
+        }
+
+        .course-coming-soon .course-level {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .courses-cta {
+            text-align: center;
+
+            background: #f3f7ff;
+
+            padding: 40px 20px;
+            border-radius: 12px;
+
+            margin-top: 50px;
+        }
+
+        .courses-cta h2 {
+            margin-bottom: 15px;
+        }
+
+        .courses-cta p {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .courses-cta-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        @media (max-width: 600px) {
+
+            .courses-header h1 {
+                font-size: 30px;
+            }
+
+            .course-category h2 {
+                font-size: 24px;
+            }
+
+            .courses-page {
+                padding: 30px 15px;
+            }
+
+            .course-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav class="navbar">
+
+        <div class="container">
+
+            <a href="index.html" class="logo">
+                Python Academy
+            </a>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="courses.html" class="active">Courses</a>
+                </li>
+
+                <li>
+                    <a href="login.html">Login</a>
+                </li>
+
+                <li>
+                    <a href="register.html">Register</a>
+                </li>
+
+                <li>
+                    <a href="dashboard.html">Dashboard</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+
+    <!-- COURSES PAGE -->
+
+    <main class="courses-page">
+
+        <div class="container">
+
+            <!-- PAGE HEADER -->
+
+            <section class="courses-header">
+
+                <h1>Explore Our Python Courses</h1>
+
+                <p>
+                    Welcome to Python Academy.
+                    Start your programming journey with simple,
+                    practical lessons designed to help you understand
+                    Python step by step.
+                </p>
+
+            </section>
+
+
+            <!-- BEGINNER COURSES -->
+
+            <section class="course-category">
+
+                <h2>Beginner Courses</h2>
+
+                <div class="courses-grid">
+
+
+                    <!-- COURSE 1 -->
+
+                    <article class="course-card">
+
+                        <div class="course-icon">
+                            🐍
+                        </div>
+
+                        <span class="course-level">
+                            Beginner
+                        </span>
+
+                        <h3>Introduction to Python</h3>
+
+                        <p>
+                            Learn the fundamentals of Python programming.
+                            Understand how Python works and write
+                            your first programs.
+                        </p>
+
+                        <div class="course-details">
+
+                            <span>
+                                📚 1 Lesson
+                            </span>
+
+                            <span>
+                                ⏱ Beginner
+                            </span>
+
+                            <span>
+                                💻 Online
+                            </span>
+
+                        </div>
+
+                        <ul>
+
+                            <li>Introduction to Python</li>
+
+                            <li>Writing your first program</li>
+
+                            <li>Variables and data types</li>
+
+                            <li>Basic calculations</li>
+
+                            <li>Practice exercises</li>
+
+                        </ul>
+
+                        <a href="lesson1.html" class="btn">
+                            Start Learning
+                        </a>
+
+                    </article>
+
+
+                    <!-- COURSE 2 -->
+
+                    <article class="course-card">
+
+                        <div class="course-icon">
+                            🔢
+                        </div>
+
+                        <span class="course-level">
+                            Beginner
+                        </span>
+
+                        <h3>Python Variables and Data Types</h3>
+
+                        <p>
+                            Understand how Python stores information
+                            and how to work with different types
+                            of data.
+                        </p>
+
+                        <div class="course-details">
+
+                            <span>
+                                📚 Coming Soon
+                            </span>
+
+                            <span>
+                                ⏱ Beginner
+                            </span>
+
+                        </div>
+
+                        <ul>
+
+                            <li>Variables</li>
+
+                            <li>Strings</li>
+
+                            <li>Integers and floats</li>
+
+                            <li>Boolean values</li>
+
+                            <li>Type conversion</li>
+
+                        </ul>
+
+                        <a href="register.html" class="btn">
+                            Join Academy
+                        </a>
+
+                    </article>
+
+
+                    <!-- COURSE 3 -->
+
+                    <article class="course-card">
+
+                        <div class="course-icon">
+                            ➕
+                        </div>
+
+                        <span class="course-level">
+                            Beginner
+                        </span>
+
+                        <h3>Python Operators</h3>
+
+                        <p>
+                            Learn how to perform calculations,
+                            compare values, and use logical
+                            operators in Python.
+                        </p>
+
+                        <div class="course-details">
+
+                            <span>
+                                📚 Coming Soon
+                            </span>
+
+                            <span>
+                                ⏱ Beginner
+                            </span>
+
+                        </div>
+
+                        <ul>
+
+                            <li>Arithmetic operators</li>
+
+                            <li>Comparison operators</li>
+
+                            <li>Assignment operators</li>
+
+                            <li>Logical operators</li>
+
+                            <li>Practical examples</li>
+
+                        </ul>
+
+                        <a href="register.html" class="btn">
+                            Join Academy
+                        </a>
+
+                    </article>
+
+
+                    <!-- COURSE 4 -->
+
+                    <article class="course-card">
+
+                        <div class="course-icon">
+                            🔀
+                        </div>
+
+                        <span class="course-level">
+                            Beginner
+                        </span>
+
+                        <h3>Python Conditions</h3>
+
+                        <p>
+                            Learn how to make decisions in Python
+                            using conditional statements.
+                        </p>
+
+                        <div class="course-details">
+
+                            <span>
+                                📚 Coming Soon
+                            </span>
+
+                            <span>
+                                ⏱ Beginner
+                            </span>
+
+                        </div>
+
+                        <ul>
+
+                            <li>Introduction to conditions</li>
+
+                            <li>if statements</li>
+
+                            <li>if and else</li>
+
+                            <li>elif statements</li>
+
+                            <li>Practical exercises</li>
+
+                        </ul>
+
+                        <a href="register.html" class="btn">
+                            Join Academy
+                        </a>
+
+                    </article>
+
+
+                    <!-- COURSE 5 -->
+
+                    <article class="course-card">
+
+                        <div class="course-icon">
+                            🔁
+                        </div>
+
+                        <span class="course-level">
+                            Beginner
+                        </span>
+
+                        <h3>Python Loops</h3>
+
+                        <p>
+                            Learn how to repeat instructions
+                            and automate tasks using loops.
+                        </p>
+
+                        <div class="course-details">
+
+                            <span>
+                                📚 Coming Soon
+                            </span>
+
+                            <span>
+                                ⏱ Beginner
+                            </span>
+
+                        </div>
+
+                        <ul>
+
+                            <li>Introduction to loops</li>
+
+                            <li>for loops</li>
+
+                            <li>while loops</li>
+
+                            <li>break and continue</li>
+
+                            <li>Loop exercises</li>
+
+                        </ul>
+
+                        <a href="register.html" class="btn">
+                            Join Academy
+                        </a>
+
+                    </article>
+
+
+                    <!-- COURSE 6 -->
+
+                    <article class="course-card">
+
+                        <div class="course-icon">
+                            📦
+                        </div>
+
+                        <span class="course-level">
+                            Beginner
+                        </span>
+
+                        <h3>Python Functions</h3>
+
+                        <p>
+                            Learn how to organize your code
+                            into reusable functions.
+                        </p>
+
+                        <div class="course-details">
+
+                            <span>
+                                📚 Coming Soon
+                            </span>
+
+                            <span>
+                                ⏱ Beginner
+                            </span>
+
+                        </div>
+
+                        <ul>
+
+                            <li>What are functions?</li>
+
+                            <li>Creating functions</li>
+
+                            <li>Function parameters</li>
+
+                            <li>Return values</li>
+
+                            <li>Reusable code</li>
+
+                        </ul>
+
+                        <a href="register.html" class="btn">
+                            Join Academy
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- INTERMEDIATE COURSES -->
+
+            <section class="course-category">
+
+                <h2>Intermediate Courses</h2>
+
+                <div class="courses-grid">
+
+
+                    <!-- COURSE 7 -->
+
+                    <article class="course-card course-coming-soon">
+
+                        <div class="course-icon">
+                            📋
+                        </div>
+
+                        <span class="course-level">
+                            Intermediate
+                        </span>
+
+                        <h3>Python Lists and Dictionaries</h3>
+
+                        <p>
+                            Learn how to store, organize,
+                            and manage collections of data.
+                        </p>
+
+                        <div class="course-details">
+
+                            <span>
+                                📚 Coming Soon
+                            </span>
+
+                        </div>
+
+                        <ul>
+
+                            <li>Lists</li>
+
+                            <li>Tuples</li>
+
+                            <li>Dictionaries</li>
+
+                            <li>Sets</li>
+
+                            <li>Working with collections</li>
+
+                        </ul>
+
+                        <a href="register.html" class="btn">
+                            Join Academy
+                        </a>
+
+                    </article>
+
+
+                    <!-- COURSE 8 -->
+
+                    <article class="course-card course-coming-soon">
+
+                        <div class="course-icon">
+                            🛠️
+                        </div>
+
+                        <span class="course-level">
+                            Intermediate
+                        </span>
+
+                        <h3>Python Projects</h3>
+
+                        <p>
+                            Apply your Python knowledge by
+                            building practical programming projects.
+                        </p>
+
+                        <div class="course-details">
+
+                            <span>
+                                📚 Coming Soon
+                            </span>
+
+                        </div>
+
+                        <ul>
+
+                            <li>Simple calculator</li>
+
+                            <li>Number guessing game</li>
+
+                            <li>Student grade system</li>
+
+                            <li>Basic banking program</li>
+
+                            <li>Mini project development</li>
+
+                        </ul>
+
+                        <a href="register.html" class="btn">
+                            Join Academy
+                        </a>
+
+                    </article>
+
+
+                    <!-- COURSE 9 -->
+
+                    <article class="course-card course-coming-soon">
+
+                        <div class="course-icon">
+                            🖥️
+                        </div>
+
+                        <span class="course-level">
+                            Intermediate
+                        </span>
+
+                        <h3>Python File Handling</h3>
+
+                        <p>
+                            Learn how to create, read,
+                            update, and manage files
+                            using Python.
+                        </p>
+
+                        <div class="course-details">
+
+                            <span>
+                                📚 Coming Soon
+                            </span>
+
+                        </div>
+
+                        <ul>
+
+                            <li>Opening files</li>
+
+                            <li>Reading files</li>
+
+                            <li>Writing files</li>
+
+                            <li>Appending information</li>
+
+                            <li>Working with text files</li>
+
+                        </ul>
+
+                        <a href="register.html" class="btn">
+                            Join Academy
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- LEARNING PROCESS -->
+
+            <section class="courses-cta">
+
+                <h2>Start Learning Python Today</h2>
+
+                <p>
+                    Create an account, begin your lessons,
+                    practice your programming skills,
+                    and track your learning progress.
+                </p>
+
+                <div class="courses-cta-buttons">
+
+                    <a href="register.html" class="btn">
+                        Create Account
+                    </a>
+
+                    <a href="login.html" class="btn btn-secondary">
+                        Login
+                    </a>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <p>
+                © 2026 Python Academy.
+                Learn Python step by step.
+            </p>
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="courses.html">
+                    Courses
+                </a>
+
+                <a href="login.html">
+                    Login
+                </a>
+
+                <a href="register.html">
+                    Register
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
