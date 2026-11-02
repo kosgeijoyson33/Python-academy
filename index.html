@@ -1,229 +1,1177 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Python Academy | Learn Python Online</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Python Academy | Learn Python Online</title>
+
+    <meta name="description"
+          content="Learn Python programming step by step with Python Academy. Explore beginner lessons, practical exercises, quizzes, and track your progress.">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* HOME PAGE */
+
+        .home-hero {
+            padding: 80px 20px;
+            background: linear-gradient(
+                135deg,
+                #0f172a,
+                #1e3a8a
+            );
+
+            color: white;
+        }
+
+        .home-hero-content {
+            max-width: 1200px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+
+            gap: 40px;
+            align-items: center;
+        }
+
+        .home-hero h1 {
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .home-hero h1 span {
+            color: #60a5fa;
+        }
+
+        .home-hero p {
+            font-size: 18px;
+            line-height: 1.8;
+
+            color: #e2e8f0;
+
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .hero-buttons a {
+            text-align: center;
+        }
+
+        .hero-image {
+            background: rgba(255, 255, 255, 0.08);
+
+            border: 1px solid rgba(255, 255, 255, 0.15);
+
+            border-radius: 20px;
+
+            padding: 35px;
+
+            text-align: center;
+        }
+
+        .hero-python-icon {
+            font-size: 100px;
+            margin-bottom: 20px;
+        }
+
+        .hero-image h2 {
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .hero-image p {
+            font-size: 15px;
+            margin-bottom: 0;
+        }
+
+        .hero-code {
+            background: #020617;
+
+            color: #86efac;
+
+            text-align: left;
+
+            padding: 20px;
+
+            border-radius: 10px;
+
+            margin-top: 25px;
+
+            font-family: monospace;
+
+            line-height: 1.8;
+
+            overflow-x: auto;
+        }
+
+        /* FEATURES */
+
+        .home-features {
+            padding: 60px 20px;
+        }
+
+        .home-section-header {
+            text-align: center;
+
+            max-width: 800px;
+
+            margin: 0 auto 40px;
+        }
+
+        .home-section-header h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .home-section-header p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .home-feature-grid {
+            display: grid;
+
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(220px, 1fr)
+            );
+
+            gap: 25px;
+        }
+
+        .home-feature-card {
+            background: #ffffff;
+
+            padding: 25px;
+
+            border-radius: 12px;
+
+            border: 1px solid #e5e7eb;
+
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+
+            text-align: center;
+        }
+
+        .home-feature-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .home-feature-card h3 {
+            margin-bottom: 12px;
+            font-size: 20px;
+        }
+
+        .home-feature-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* COURSES */
+
+        .home-courses {
+            padding: 60px 20px;
+            background: #f8fafc;
+        }
+
+        .home-course-grid {
+            display: grid;
+
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(250px, 1fr)
+            );
+
+            gap: 25px;
+        }
+
+        .home-course-card {
+            background: white;
+
+            border-radius: 12px;
+
+            padding: 25px;
+
+            border: 1px solid #e5e7eb;
+
+            display: flex;
+            flex-direction: column;
+
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+
+            transition: transform 0.3s ease;
+        }
+
+        .home-course-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .home-course-icon {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .home-course-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .home-course-card p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .home-course-card ul {
+            padding-left: 20px;
+            margin-bottom: 25px;
+        }
+
+        .home-course-card li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .home-course-card .btn {
+            margin-top: auto;
+            text-align: center;
+            display: block;
+        }
+
+        .home-course-label {
+            display: inline-block;
+
+            width: fit-content;
+
+            background: #e8f5e9;
+            color: #2e7d32;
+
+            padding: 6px 12px;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+            font-weight: bold;
+
+            margin-bottom: 15px;
+        }
+
+        /* LEARNING STEPS */
+
+        .home-learning {
+            padding: 60px 20px;
+        }
+
+        .home-learning-grid {
+            display: grid;
+
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(200px, 1fr)
+            );
+
+            gap: 25px;
+        }
+
+        .home-learning-step {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .home-step-number {
+            width: 55px;
+            height: 55px;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            margin: 0 auto 20px;
+
+            border-radius: 50%;
+
+            background: #2563eb;
+
+            color: white;
+
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .home-learning-step h3 {
+            margin-bottom: 12px;
+        }
+
+        .home-learning-step p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* ABOUT */
+
+        .home-about {
+            padding: 60px 20px;
+            background: #f8fafc;
+        }
+
+        .home-about-content {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .home-about-content h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .home-about-content p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        /* CALL TO ACTION */
+
+        .home-cta {
+            padding: 60px 20px;
+            background: #1e3a8a;
+            color: white;
+            text-align: center;
+        }
+
+        .home-cta-content {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .home-cta h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .home-cta p {
+            line-height: 1.8;
+            color: #e2e8f0;
+            margin-bottom: 25px;
+        }
+
+        .home-cta-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        /* BUTTONS */
+
+        .home-hero .btn,
+        .home-cta .btn {
+            display: inline-block;
+
+            padding: 13px 24px;
+
+            border-radius: 8px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+        .home-hero .btn-primary,
+        .home-cta .btn-primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .home-hero .btn-outline {
+            border: 1px solid white;
+            color: white;
+        }
+
+        .home-cta .btn-outline {
+            border: 1px solid white;
+            color: white;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 768px) {
+
+            .home-hero {
+                padding: 50px 20px;
+            }
+
+            .home-hero-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .home-hero h1 {
+                font-size: 36px;
+            }
+
+            .hero-python-icon {
+                font-size: 75px;
+            }
+
+            .home-section-header h2 {
+                font-size: 27px;
+            }
+
+            .home-cta h2 {
+                font-size: 27px;
+            }
+
+        }
+
+        @media (max-width: 480px) {
+
+            .home-hero h1 {
+                font-size: 30px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-buttons a {
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .home-cta-buttons {
+                flex-direction: column;
+            }
+
+            .home-cta-buttons a {
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 <body>
 
-<header class="navbar">
-<a class="logo" href="index.html">🐍 Python Academy</a>
-<nav>
-<a href="index.html">Home</a>
-<a href="courses.html">Courses</a>
-<a href="index.html#features">Features</a>
-<a href="index.html#about">About</a>
-<a class="nav-login" href="login.html">Login</a>
-<a class="nav-register" href="register.html">Get Started</a>
-</nav>
-</header>
 
-<section class="hero">
-<div class="hero-content">
-<div class="hero-badge">🐍 Learn Python From Scratch</div>
+    <!-- NAVIGATION -->
 
-<h1>Master Python.<span>Build Your Future.</span></h1>
+    <nav class="navbar">
 
-<p>
-Learn Python programming through structured lessons,
-practical coding exercises, quizzes and assessments.
-</p>
+        <div class="container">
 
-<div class="hero-buttons">
-<a class="btn-primary" href="lesson1.html">Start Learning →</a>
-<a class="btn-outline" href="courses.html">Explore Course</a>
-</div>
+            <a href="index.html" class="logo">
+                Python Academy
+            </a>
 
-<div class="hero-stats">
-<div>
-<strong>20+</strong>
-<small>Lessons</small>
-</div>
-<div>
-<strong>50+</strong>
-<small>Exercises</small>
-</div>
-<div>
-<strong>1</strong>
-<small>Certificate</small>
-</div>
-</div>
-</div>
+            <ul class="nav-links">
 
-<div class="hero-code">
-<div class="code-window">
-<div class="code-top">
-<div class="code-dots">
-<i></i><i></i><i></i>
-</div>
-<span>python.py</span>
-</div>
+                <li>
+                    <a href="index.html" class="active">
+                        Home
+                    </a>
+                </li>
 
-<div class="code-body">
-<pre><span class="purple">def</span> <span class="blue">learn_python</span>():
-    name = <span class="green">"Student"</span>
-    <span class="purple">if</span> name:
-        <span class="blue">print</span>(<span class="green">"Welcome to Python!"</span>)
+                <li>
+                    <a href="courses.html">
+                        Courses
+                    </a>
+                </li>
 
-learn_python()</pre>
-</div>
-</div>
+                <li>
+                    <a href="login.html">
+                        Login
+                    </a>
+                </li>
 
-<div class="floating-card">
-<span class="check">✓</span>
-<div>
-<strong>Ready to learn</strong>
-<small>Python Basics</small>
-</div>
-</div>
-</div>
-</section>
+                <li>
+                    <a href="register.html">
+                        Register
+                    </a>
+                </li>
 
-<section id="features" class="section">
-<div class="section-heading">
-<span>LEARNING EXPERIENCE</span>
-<h2>Everything You Need to Learn Python</h2>
-<p>
-A structured learning platform designed to take you
-from beginner to confident programmer.
-</p>
-</div>
+                <li>
+                    <a href="dashboard.html">
+                        Dashboard
+                    </a>
+                </li>
 
-<div class="feature-grid">
+            </ul>
 
-<article class="feature-card">
-<div class="feature-icon blue-icon">📚</div>
-<h3>Structured Lessons</h3>
-<p>Follow lessons in order and build your knowledge step by step.</p>
-</article>
+        </div>
 
-<article class="feature-card">
-<div class="feature-icon green-icon">💻</div>
-<h3>Practical Coding</h3>
-<p>Practice Python through coding exercises and challenges.</p>
-</article>
+    </nav>
 
-<article class="feature-card">
-<div class="feature-icon purple-icon">📝</div>
-<h3>Quizzes & Tests</h3>
-<p>Test your understanding after completing lessons.</p>
-</article>
 
-<article class="feature-card">
-<div class="feature-icon orange-icon">🏆</div>
-<h3>Certificate</h3>
-<p>Complete the course and assessment to qualify for a certificate.</p>
-</article>
+    <!-- HERO SECTION -->
 
-</div>
-</section>
+    <section class="home-hero">
 
-<section id="courses" class="course-section">
-<div class="section-heading">
-<span>OUR COURSE</span>
-<h2>Complete Python Programming</h2>
-<p>Everything you need to start programming with Python.</p>
-</div>
+        <div class="home-hero-content">
 
-<div class="course-main-card">
-<div class="course-main-content">
-<div class="course-label">BEGINNER → INTERMEDIATE</div>
-<h2>Python Programming</h2>
-<p>Learn fundamentals through practical examples and exercises.</p>
+            <div>
 
-<div class="course-info">
-<span>📚 20 Lessons</span>
-<span>💻 Exercises</span>
-<span>📝 Quizzes</span>
-<span>🏆 Certificate</span>
-</div>
+                <h1>
+                    Learn Python.
+                    <span>Build Your Future.</span>
+                </h1>
 
-<a href="courses.html" class="btn-primary">View Course →</a>
-</div>
+                <p>
+                    Welcome to Python Academy, your online
+                    learning platform for mastering Python
+                    programming.
 
-<div class="course-preview">
-<div class="preview-circle">🐍</div>
-<h3>Python</h3>
-<p>Programming Fundamentals</p>
-</div>
-</div>
-</section>
+                    Start with the basics, practice coding,
+                    complete quizzes, and develop practical
+                    programming skills step by step.
+                </p>
 
-<section class="section">
-<div class="section-heading">
-<span>HOW IT WORKS</span>
-<h2>Start Learning in Four Steps</h2>
-</div>
+                <div class="hero-buttons">
 
-<div class="steps">
+                    <a href="courses.html"
+                       class="btn btn-primary">
 
-<article class="step">
-<div class="step-number">01</div>
-<h3>Create Account</h3>
-<p>Register a demo student account.</p>
-</article>
+                        Explore Courses
 
-<article class="step">
-<div class="step-number">02</div>
-<h3>Learn</h3>
-<p>Complete lessons in order.</p>
-</article>
+                    </a>
 
-<article class="step">
-<div class="step-number">03</div>
-<h3>Pass Assessment</h3>
-<p>Complete the quiz and reach the passing score.</p>
-</article>
+                    <a href="register.html"
+                       class="btn btn-outline">
 
-<article class="step">
-<div class="step-number">04</div>
-<h3>Certificate</h3>
-<p>Certificate feature can be connected after backend setup.</p>
-</article>
+                        Create Account
 
-</div>
-</section>
+                    </a>
 
-<section id="about" class="about-section">
-<div>
-<span>ABOUT PYTHON ACADEMY</span>
-<h2>Learn. Practice. Complete. Get Certified.</h2>
-<p>
-Python Academy provides a guided curriculum where students
-can learn Python at their own pace.
-</p>
-<a href="register.html" class="btn-primary">Create Account</a>
-</div>
-</section>
+                </div>
 
-<footer>
-<div class="footer-brand">
-<div class="logo">🐍 Python Academy</div>
-<p>Learn Python. Build your future.</p>
-</div>
+            </div>
 
-<div class="footer-links">
-<div>
-<h4>Platform</h4>
-<a href="index.html">Home</a>
-<a href="courses.html">Courses</a>
-<a href="index.html#features">Features</a>
-</div>
 
-<div>
-<h4>Account</h4>
-<a href="login.html">Login</a>
-<a href="register.html">Register</a>
-<a href="dashboard.html">Dashboard</a>
-</div>
-</div>
-</footer>
+            <!-- HERO CODE CARD -->
 
-<div class="copyright">
-© 2026 Python Academy. All rights reserved.
-</div>
+            <div class="hero-image">
+
+                <div class="hero-python-icon">
+                    🐍
+                </div>
+
+                <h2>
+                    Your Python Journey Starts Here
+                </h2>
+
+                <p>
+                    Learn programming through simple
+                    lessons and practical examples.
+                </p>
+
+                <div class="hero-code">
+
+                    <div>
+                        # My first Python program
+                    </div>
+
+                    <div>
+                        print("Hello, World!")
+                    </div>
+
+                    <div>
+                        print("Welcome to Python Academy")
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES SECTION -->
+
+    <section class="home-features">
+
+        <div class="container">
+
+            <div class="home-section-header">
+
+                <h2>
+                    Why Learn With Python Academy?
+                </h2>
+
+                <p>
+                    We make learning programming simple,
+                    practical, and accessible for beginners.
+                </p>
+
+            </div>
+
+
+            <div class="home-feature-grid">
+
+
+                <!-- FEATURE 1 -->
+
+                <div class="home-feature-card">
+
+                    <div class="home-feature-icon">
+                        📚
+                    </div>
+
+                    <h3>
+                        Structured Lessons
+                    </h3>
+
+                    <p>
+                        Follow organized lessons that
+                        introduce Python concepts
+                        step by step.
+                    </p>
+
+                </div>
+
+
+                <!-- FEATURE 2 -->
+
+                <div class="home-feature-card">
+
+                    <div class="home-feature-icon">
+                        💻
+                    </div>
+
+                    <h3>
+                        Practical Learning
+                    </h3>
+
+                    <p>
+                        Understand programming through
+                        examples, exercises, and
+                        simple projects.
+                    </p>
+
+                </div>
+
+
+                <!-- FEATURE 3 -->
+
+                <div class="home-feature-card">
+
+                    <div class="home-feature-icon">
+                        📝
+                    </div>
+
+                    <h3>
+                        Quizzes
+                    </h3>
+
+                    <p>
+                        Test your understanding
+                        and improve your knowledge
+                        after completing lessons.
+                    </p>
+
+                </div>
+
+
+                <!-- FEATURE 4 -->
+
+                <div class="home-feature-card">
+
+                    <div class="home-feature-icon">
+                        📈
+                    </div>
+
+                    <h3>
+                        Track Progress
+                    </h3>
+
+                    <p>
+                        Monitor your learning progress
+                        and see the lessons you
+                        have completed.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- COURSES SECTION -->
+
+    <section class="home-courses">
+
+        <div class="container">
+
+            <div class="home-section-header">
+
+                <h2>
+                    Explore Our Courses
+                </h2>
+
+                <p>
+                    Start learning Python from the
+                    fundamentals and progress toward
+                    building practical applications.
+                </p>
+
+            </div>
+
+
+            <div class="home-course-grid">
+
+
+                <!-- COURSE 1 -->
+
+                <article class="home-course-card">
+
+                    <div class="home-course-icon">
+                        🐍
+                    </div>
+
+                    <span class="home-course-label">
+                        Beginner
+                    </span>
+
+                    <h3>
+                        Introduction to Python
+                    </h3>
+
+                    <p>
+                        Learn Python fundamentals,
+                        write your first program,
+                        understand variables,
+                        and perform calculations.
+                    </p>
+
+                    <ul>
+
+                        <li>Python introduction</li>
+
+                        <li>Variables and data types</li>
+
+                        <li>Basic calculations</li>
+
+                        <li>Practice exercises</li>
+
+                    </ul>
+
+                    <a href="lesson1.html"
+                       class="btn">
+
+                        Start Lesson
+
+                    </a>
+
+                </article>
+
+
+                <!-- COURSE 2 -->
+
+                <article class="home-course-card">
+
+                    <div class="home-course-icon">
+                        🔀
+                    </div>
+
+                    <span class="home-course-label">
+                        Beginner
+                    </span>
+
+                    <h3>
+                        Python Conditions
+                    </h3>
+
+                    <p>
+                        Learn how Python makes decisions
+                        using conditions and logical
+                        statements.
+                    </p>
+
+                    <ul>
+
+                        <li>if statements</li>
+
+                        <li>if and else</li>
+
+                        <li>elif statements</li>
+
+                        <li>Decision making</li>
+
+                    </ul>
+
+                    <a href="courses.html"
+                       class="btn">
+
+                        View Courses
+
+                    </a>
+
+                </article>
+
+
+                <!-- COURSE 3 -->
+
+                <article class="home-course-card">
+
+                    <div class="home-course-icon">
+                        🔁
+                    </div>
+
+                    <span class="home-course-label">
+                        Beginner
+                    </span>
+
+                    <h3>
+                        Python Loops
+                    </h3>
+
+                    <p>
+                        Understand how to repeat
+                        instructions and automate
+                        tasks using Python.
+                    </p>
+
+                    <ul>
+
+                        <li>for loops</li>
+
+                        <li>while loops</li>
+
+                        <li>break and continue</li>
+
+                        <li>Loop exercises</li>
+
+                    </ul>
+
+                    <a href="courses.html"
+                       class="btn">
+
+                        View Courses
+
+                    </a>
+
+                </article>
+
+
+                <!-- COURSE 4 -->
+
+                <article class="home-course-card">
+
+                    <div class="home-course-icon">
+                        🛠️
+                    </div>
+
+                    <span class="home-course-label">
+                        Intermediate
+                    </span>
+
+                    <h3>
+                        Python Projects
+                    </h3>
+
+                    <p>
+                        Apply your programming
+                        knowledge by building
+                        useful projects.
+                    </p>
+
+                    <ul>
+
+                        <li>Simple calculator</li>
+
+                        <li>Number guessing game</li>
+
+                        <li>Student grade system</li>
+
+                        <li>Mini projects</li>
+
+                    </ul>
+
+                    <a href="courses.html"
+                       class="btn">
+
+                        View Courses
+
+                    </a>
+
+                </article>
+
+            </div>
+
+
+            <!-- ALL COURSES BUTTON -->
+
+            <div style="text-align: center; margin-top: 35px;">
+
+                <a href="courses.html"
+                   class="btn">
+
+                    View All Courses
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- HOW IT WORKS -->
+
+    <section class="home-learning">
+
+        <div class="container">
+
+            <div class="home-section-header">
+
+                <h2>
+                    How Python Academy Works
+                </h2>
+
+                <p>
+                    Follow these simple steps
+                    to begin your programming journey.
+                </p>
+
+            </div>
+
+
+            <div class="home-learning-grid">
+
+
+                <!-- STEP 1 -->
+
+                <div class="home-learning-step">
+
+                    <div class="home-step-number">
+                        1
+                    </div>
+
+                    <h3>
+                        Create an Account
+                    </h3>
+
+                    <p>
+                        Register with Python Academy
+                        to access your learning
+                        dashboard.
+                    </p>
+
+                </div>
+
+
+                <!-- STEP 2 -->
+
+                <div class="home-learning-step">
+
+                    <div class="home-step-number">
+                        2
+                    </div>
+
+                    <h3>
+                        Start Learning
+                    </h3>
+
+                    <p>
+                        Open the courses page
+                        and begin with the
+                        introduction to Python.
+                    </p>
+
+                </div>
+
+
+                <!-- STEP 3 -->
+
+                <div class="home-learning-step">
+
+                    <div class="home-step-number">
+                        3
+                    </div>
+
+                    <h3>
+                        Practice and Test
+                    </h3>
+
+                    <p>
+                        Complete exercises
+                        and quizzes to
+                        test your knowledge.
+                    </p>
+
+                </div>
+
+
+                <!-- STEP 4 -->
+
+                <div class="home-learning-step">
+
+                    <div class="home-step-number">
+                        4
+                    </div>
+
+                    <h3>
+                        Track Your Progress
+                    </h3>
+
+                    <p>
+                        Use your dashboard
+                        to monitor completed
+                        lessons and progress.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT SECTION -->
+
+    <section class="home-about">
+
+        <div class="container">
+
+            <div class="home-about-content">
+
+                <h2>
+                    About Python Academy
+                </h2>
+
+                <p>
+                    Python Academy is designed to help
+                    learners develop programming skills
+                    through simple lessons, practical
+                    examples, exercises, and quizzes.
+                </p>
+
+                <p>
+                    Whether you are completely new
+                    to programming or improving your
+                    existing knowledge, you can
+                    follow the learning path
+                    at your own pace.
+                </p>
+
+                <a href="courses.html"
+                   class="btn">
+
+                    Explore Learning Path
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CALL TO ACTION -->
+
+    <section class="home-cta">
+
+        <div class="home-cta-content">
+
+            <h2>
+                Ready to Start Coding?
+            </h2>
+
+            <p>
+                Take your first step into programming.
+                Create your account and begin
+                learning Python today.
+            </p>
+
+            <div class="home-cta-buttons">
+
+                <a href="register.html"
+                   class="btn btn-primary">
+
+                    Register Now
+
+                </a>
+
+                <a href="courses.html"
+                   class="btn btn-outline">
+
+                    Browse Courses
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <p>
+                © 2026 Python Academy.
+                Learn Python step by step.
+            </p>
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="courses.html">
+                    Courses
+                </a>
+
+                <a href="login.html">
+                    Login
+                </a>
+
+                <a href="register.html">
+                    Register
+                </a>
+
+                <a href="dashboard.html">
+                    Dashboard
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
 
 </body>
+
 </html>
