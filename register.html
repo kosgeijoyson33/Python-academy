@@ -1,0 +1,603 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Register | Python Academy</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        body {
+            background: #f4f7fb;
+        }
+
+        .auth-container {
+            max-width: 450px;
+            margin: 60px auto;
+            padding: 20px;
+        }
+
+        .auth-card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .auth-card h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .auth-card p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .auth-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .auth-form input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 7px;
+            box-sizing: border-box;
+        }
+
+        .auth-form button {
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 7px;
+            background: #2563eb;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .auth-form button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .auth-message {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 7px;
+            display: none;
+            line-height: 1.5;
+        }
+
+        .auth-message.success {
+            display: block;
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .auth-message.error {
+            display: block;
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        .auth-links {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .auth-links a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        #otpSection {
+            display: none;
+        }
+
+        .otp-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .otp-actions button {
+            flex: 1;
+        }
+
+        .secondary-button {
+            background: #64748b !important;
+        }
+
+        @media (max-width: 500px) {
+
+            .auth-card {
+                padding: 25px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <!-- NAVIGATION -->
+
+    <nav class="navbar">
+
+        <div class="container">
+
+            <a href="index.html" class="logo">
+                Python Academy
+            </a>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="courses.html">Courses</a>
+                </li>
+
+                <li>
+                    <a href="login.html">Login</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+
+    <!-- REGISTRATION -->
+
+    <main class="auth-container">
+
+        <div class="auth-card">
+
+            <h1>Create Account</h1>
+
+            <p>
+                Join Python Academy and start learning Python.
+            </p>
+
+
+            <!-- REGISTRATION FORM -->
+
+            <form id="registerForm" class="auth-form">
+
+                <label for="fullName">
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="fullName"
+                    placeholder="Enter your full name"
+                    required
+                    minlength="2"
+                >
+
+
+                <label for="email">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Create password"
+                    required
+                    minlength="8"
+                >
+
+
+                <label for="confirmPassword">
+                    Confirm Password
+                </label>
+
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Confirm password"
+                    required
+                    minlength="8"
+                >
+
+
+                <button type="submit" id="registerButton">
+
+                    Create Account & Send OTP
+
+                </button>
+
+            </form>
+
+
+            <!-- OTP SECTION -->
+
+            <section id="otpSection">
+
+                <h2 style="margin-top: 25px;">
+                    Verify Your Email
+                </h2>
+
+                <p>
+                    Enter the verification code
+                    sent to your email address.
+                </p>
+
+
+                <form id="otpForm" class="auth-form">
+
+                    <label for="otp">
+                        Email Verification Code
+                    </label>
+
+                    <input
+                        type="text"
+                        id="otp"
+                        placeholder="Enter 6-digit OTP"
+                        required
+                        inputmode="numeric"
+                        autocomplete="one-time-code"
+                        maxlength="6"
+                        pattern="[0-9]{6}"
+                    >
+
+
+                    <button type="submit" id="verifyButton">
+
+                        Verify Email
+
+                    </button>
+
+                </form>
+
+
+                <div class="otp-actions">
+
+                    <button
+                        type="button"
+                        id="resendButton"
+                        class="secondary-button"
+                    >
+
+                        Resend OTP
+
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- MESSAGE -->
+
+            <div
+                id="authMessage"
+                class="auth-message"
+                role="status"
+                aria-live="polite"
+            ></div>
+
+
+            <!-- LOGIN LINK -->
+
+            <div class="auth-links">
+
+                <p>
+                    Already have an account?
+                    <a href="login.html">
+                        Login
+                    </a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- SUPABASE LIBRARY -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+    <!-- AUTHENTICATION -->
+
+    <script src="auth.js"></script>
+
+
+    <!-- REGISTRATION LOGIC -->
+
+    <script>
+
+        const registerForm =
+            document.getElementById("registerForm");
+
+        const otpForm =
+            document.getElementById("otpForm");
+
+        const otpSection =
+            document.getElementById("otpSection");
+
+        const registerButton =
+            document.getElementById("registerButton");
+
+        const verifyButton =
+            document.getElementById("verifyButton");
+
+        const resendButton =
+            document.getElementById("resendButton");
+
+        const authMessage =
+            document.getElementById("authMessage");
+
+
+        let registeredEmail = "";
+
+
+        /* =====================================
+           DISPLAY MESSAGE
+        ===================================== */
+
+        function showMessage(message, type) {
+
+            authMessage.textContent = message;
+
+            authMessage.className =
+                "auth-message " + type;
+
+        }
+
+
+        /* =====================================
+           REGISTER
+        ===================================== */
+
+        registerForm.addEventListener("submit", async function(event) {
+
+            event.preventDefault();
+
+            const name =
+                document.getElementById("fullName")
+                .value.trim();
+
+            const email =
+                document.getElementById("email")
+                .value.trim();
+
+            const password =
+                document.getElementById("password")
+                .value;
+
+            const confirmPassword =
+                document.getElementById("confirmPassword")
+                .value;
+
+
+            if (password !== confirmPassword) {
+
+                showMessage(
+                    "Passwords do not match.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            if (password.length < 8) {
+
+                showMessage(
+                    "Password must contain at least 8 characters.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            registerButton.disabled = true;
+
+            registerButton.textContent =
+                "Creating account...";
+
+
+            try {
+
+                registeredEmail = email;
+
+                await registerUser(
+                    name,
+                    email,
+                    password
+                );
+
+
+                registerForm.style.display = "none";
+
+                otpSection.style.display = "block";
+
+
+                showMessage(
+                    "Registration submitted. Check your email for the verification code.",
+                    "success"
+                );
+
+
+            } catch (error) {
+
+                showMessage(
+                    displayAuthError(error),
+                    "error"
+                );
+
+            } finally {
+
+                registerButton.disabled = false;
+
+                registerButton.textContent =
+                    "Create Account & Send OTP";
+
+            }
+
+        });
+
+
+        /* =====================================
+           VERIFY OTP
+        ===================================== */
+
+        otpForm.addEventListener("submit", async function(event) {
+
+            event.preventDefault();
+
+
+            const otp =
+                document.getElementById("otp")
+                .value.trim();
+
+
+            if (!/^[0-9]{6}$/.test(otp)) {
+
+                showMessage(
+                    "Enter the 6-digit verification code.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            verifyButton.disabled = true;
+
+            verifyButton.textContent =
+                "Verifying...";
+
+
+            try {
+
+                await verifyEmailOTP(
+                    registeredEmail,
+                    otp
+                );
+
+
+                showMessage(
+                    "Email verified successfully. Redirecting to login...",
+                    "success"
+                );
+
+
+                setTimeout(function() {
+
+                    window.location.href = "login.html";
+
+                }, 1500);
+
+
+            } catch (error) {
+
+                showMessage(
+                    displayAuthError(error),
+                    "error"
+                );
+
+            } finally {
+
+                verifyButton.disabled = false;
+
+                verifyButton.textContent =
+                    "Verify Email";
+
+            }
+
+        });
+
+
+        /* =====================================
+           RESEND OTP
+        ===================================== */
+
+        resendButton.addEventListener("click", async function() {
+
+            resendButton.disabled = true;
+
+            resendButton.textContent =
+                "Sending...";
+
+
+            try {
+
+                await resendEmailOTP(
+                    registeredEmail
+                );
+
+
+                showMessage(
+                    "A new verification code has been requested. Check your email.",
+                    "success"
+                );
+
+
+            } catch (error) {
+
+                showMessage(
+                    displayAuthError(error),
+                    "error"
+                );
+
+            } finally {
+
+                resendButton.disabled = false;
+
+                resendButton.textContent =
+                    "Resend OTP";
+
+            }
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>
