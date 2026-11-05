@@ -1,22 +1,9 @@
-/* =====================================================
-   PYTHON ACADEMY
-   AUTHENTICATION SYSTEM
-===================================================== */
 
-/*
-   STEP 1:
-   Replace these two values with your Supabase
-   Project URL and Publishable Key.
-*/
 
 const SUPABASE_URL = "https://aqtstatgmpqcajniirix.supabase.co";
 
 const SUPABASE_KEY = "sb_publishable_go-rsoZVXht0DEQ6ZXiauQ_dqag6mkl";
 
-
-/* =====================================================
-   CONNECT TO SUPABASE
-===================================================== */
 
 const supabaseClient = window.supabase.createClient(
     SUPABASE_URL,
@@ -54,7 +41,6 @@ async function registerUser(name, email, password) {
 
 }
 
-
 /* =====================================================
    VERIFY EMAIL OTP
 ===================================================== */
@@ -79,7 +65,6 @@ async function verifyEmailOTP(email, otp) {
 
 }
 
-
 /* =====================================================
    RESEND OTP
 ===================================================== */
@@ -101,7 +86,6 @@ async function resendEmailOTP(email) {
     return data;
 
 }
-
 
 /* =====================================================
    LOGIN USER
@@ -125,7 +109,6 @@ async function loginUser(email, password) {
 
 }
 
-
 /* =====================================================
    LOGOUT USER
 ===================================================== */
@@ -139,7 +122,6 @@ async function logoutUser() {
     }
 
 }
-
 
 /* =====================================================
    GET CURRENT USER
@@ -156,7 +138,6 @@ async function getCurrentUser() {
     return data.user;
 
 }
-
 
 /* =====================================================
    PROTECT DASHBOARD
@@ -177,7 +158,6 @@ async function requireLogin() {
     return user;
 
 }
-
 
 /* =====================================================
    DISPLAY AUTHENTICATION ERRORS
